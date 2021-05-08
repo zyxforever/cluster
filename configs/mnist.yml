@@ -1,0 +1,10 @@
+dataset:
+  name: mnist 
+model: 
+  name: vae
+  cuda: False 
+training:
+  epoches: 20 
+  optimizer: 
+    name: adam 
+    lr: 1.0e-3
