@@ -1,5 +1,6 @@
 dataset:
   name: mnist 
+  path: /home/zyx/datasets
 model: 
   name: vae
   cuda: False 
