@@ -7,8 +7,8 @@ class _AbstractTorchvisionDataset:
     name = NotImplementedError
     label_shift = 0
     def __init__(self,cfg):
-        dataset = self.dataset_class(root=cfg['dataset']['path'],transforms=self.transform)
-
+        dataset = self.dataset_class(root=cfg['dataset']['path'],transform=self.transform,download=True)
+        self.dataset=dataset 
     @property
     def transform(self):
         return Compose([ToTensor()])

@@ -1,6 +1,7 @@
 dataset:
   name: mnist 
-  path: /home/zyx/datasets
+  path: E:\datasets
+  batch_size: 128 
 model: 
   name: vae
   cuda: False 
