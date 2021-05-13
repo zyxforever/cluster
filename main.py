@@ -1,6 +1,6 @@
-import yaml 
 
-from train import Trainer
+
+from train_dec import Trainer
 def main():
     with open('configs/mnist.yml')  as fp:
         cfg=yaml.load(fp,Loader=yaml.FullLoader)

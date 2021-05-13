@@ -1,3 +1,4 @@
+import yaml 
 import torch  
 import torch.nn.functional as F
 
@@ -40,3 +41,12 @@ class Trainer:
         self.train_autoencoder()
         self.train_dec()
         pass 
+
+def main():
+    with open('configs/mnist.yml')  as fp:
+        cfg=yaml.load(fp,Loader=yaml.FullLoader)
+        trainer=Trainer(cfg)
+        trainer.run()
+
+if __name__=='__main__':
+    main()
