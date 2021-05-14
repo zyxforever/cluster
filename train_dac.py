@@ -3,7 +3,9 @@ import numpy as np
 import torch 
 import torch.nn.functional as F
 
-from tools.utils import ACC
+#from tools.utils import ACC
+from utils.metrics import Scores
+
 from torch import nn
 from model import get_model
 from dataset import get_dataset
@@ -22,6 +24,7 @@ class Trainer:
         self.data_loader=DataLoader(train_dataset,batch_size=cfg['dataset']['batch_size'],shuffle=True,num_workers=2)
         self.loss=nn.MSELoss(reduction="mean")
         self.threshold = cfg['training']["upper_threshold"]
+        self.val_scores = Scores(10, 10)
     def eval(self):
         self.model.eval()
         pre_y=[]
@@ -32,9 +35,10 @@ class Trainer:
             tru_y.append(y.numpy())
         pre_y=np.concatenate(pre_y,0)
         tru_y=np.concatenate(tru_y,0)
-        acc=ACC(pre_y,tru_y)
-        print("\r ACC:{}".format(acc))
-        return acc 
+        self.val_scores.update(tru_y,pre_y)
+        self.val_scores.compute()
+        names = list(filter(lambda name: 'cls' not in name, self.val_scores.names))
+        
     def run(self):
         Lambda=0
         epoches=self.cfg['training']['epoches']

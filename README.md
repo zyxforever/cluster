@@ -1,3 +1,2 @@
-# deep_cluster
+# Note: Implement of DEC DAC 
 
-My own deep clustering here
