@@ -1,0 +1,14 @@
+
+dataset:
+  name: mnist 
+  path: E:\datasets
+  batch_size: 128 
+model: 
+  name: dac_mnist
+  cuda: False 
+training:
+  epoches: 20 
+  upper_threshold: 0.95
+  optimizer: 
+    name: rmsprop 
+    lr: 0.001
