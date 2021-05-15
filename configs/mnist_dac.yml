@@ -1,11 +1,11 @@
 
 dataset:
   name: mnist 
-  path: E:\datasets
+  path: D:\datasets
   batch_size: 128 
 model: 
   name: dac_mnist
-  cuda: False 
+  cuda: True 
 training:
   epoches: 20 
   upper_threshold: 0.95
