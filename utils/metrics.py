@@ -24,7 +24,7 @@ class Scores:
         self.reset()
 
     def compute(self):
-        nmi = nmi_score(self.labels_true, self.labels_pred, average_method='arithmetic')
+        nmi = nmi_score(self.labels_true, self.labels_pred)
         if self.prev_labels_pred is not None:
             nmi_diff = nmi_score(self.prev_labels_pred, self.labels_pred, average_method='arithmetic')
         else:
