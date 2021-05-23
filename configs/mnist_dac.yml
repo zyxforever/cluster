@@ -1,7 +1,7 @@
 
 dataset:
   name: mnist 
-  path: D:\datasets
+  path: E:\datasets
   batch_size: 128 
 model: 
   name: dac_mnist
